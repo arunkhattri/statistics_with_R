@@ -1,0 +1,174 @@
+---
+title: "Fundamentals"
+author: "Arun Kr. Khattri"
+date: "`r format(Sys.time(), '%b %d, %Y')`"
+output: 
+  html_notebook: 
+    toc: yes
+    theme: cosmo
+---
+
+**Data keys**:
+
++ response variable
++ explanatory variables
++ variables - continuous, categorical or mix of both.
++ response variable - continuous, discrete, proportion, category, survival
+
+above will lead towards appropriate statistical method:
+
+* Explanatory variable
+
+| explanatory variables | method |
+| :---                  | ---:
+| continuous            | Regression |
+| categorical           | ANOVA |
+| mix (con + cat)       | ANCOVA |
+
+* Response variable
+
+| Response variables    | method |
+| :---                  | ---:
+| Continuous            | Regression, ANOVA or ANCOVA |
+| Proportion            | Logistic regression         |
+| Count                 | Log linear models           |
+| Binary                | Binary logistic analysis    |
+| Time at death         | Survival analysis
+
+**Spatial heterogeneity** - places always differ
+
+**Temporal heterogeneity** - times always differ
+
+**Why Statistics**
+
+way of discriminating between variation that is scientifically interesting, and variation that just reflects background heterogeneity.
+
+**Key concept**
+
+amount of variation that we would expect to occur by chance alone, when nothing scientifically interesting was going on.
+
+**Non-significant is not the same thing as 'not different'**
+
+the lack of significance may be due simply to the fact that our replication is too low.
+
+## Significance
+a result was unlikely to have occurred by chance if the null hypothesis was true.
+
+**unlikely** - an event is unlikely if it occurs less than 5% of the time.
+
+**null hypotheses** says that _'nothing is happening'_ and the **alternative** says that _'something is happening'_.
+
+## Hypothesis
+
+**Good Hypothesis** is a falsifiable hypothesis. *absence of evidence is not evidence of absence.*
+
+**Null Hypothesis** says *nothing is happening*.
+
+## p Values
++ p value is not the probability that the null hypothesis is true. In fact, p-values are calculated on the assumption that the null hypothesis is true.
++ p-values are about the size of the *test statistics*.
++ p-value is an estimate of the probability that a value of the *test statistic*, or a value more extreme than this, could have occurred by chance *when the null hypothesis is true*.
++ Big values of the *test statistic* indicate that the null hypothesis is unlikely to be true.
++ For sufficiently large values of the *test statistic*, we reject the null hypothesis and accept the alternative hypothesis.
+
+The modern practice is to state the *p value* rather than just to say *'we reject the null hypothesis'*. That way, the reader can form their own opinion about the effect size and its associated uncertainty.
+
+## Interpretation
+
+**Type I error**
+
+Reject the null hypothesis when it is true.
+
+**Type II error**
+
+Accept the null hypothesis when it is false.
+
+## Model Choice
+
+*All models are wrong, but some models are better than others*.
+
+**Key Assumptions**
+
++ random sampling
+
++ constant variance
+
++ normal errors
+
++ independent errors
+
++ additive effects
+
+## Statistical Modelling
+
+The objective is to determine the values of the parameters in a specific model that *lead to the best fit of the model to the data*.
+
+The best model is the model that produces the least unexplained variation (the minimal residual deviance), subject to the constraint that the parameters in the model should all be statistically significant.
+
+Model to be -
+
++ *minimal* because of the principle of parsimony.
+
++ *adequate* because there is no point in retaining an inadequate model that does not describe a significant fraction of the variation in the data.
+
+**Principle of Parsimony**
+
+The principle of parsimony is attributed to the early 14th-century English nominalist philosopher, William of Occam, who insisted that, given a set of equally good explanations for a given phenomenon, the *correct explanation is the simplest explanation*.
+
+His point was that in explaining something, assumptions must not be needlessly multiplied. In particular, for the purposes of explanation, things not known to exist should not, unless it is absolutely necessary, be postulated as existing. For statistical modelling, the principle of parsimony means that:
+
+* models should have as few parameters as possible;
+* linear models should be preferred to non-linear models;
+* experiments relying on few assumptions should be preferred to those relying on many;
+* models should be pared down until they are minimal adequate;
+* simple explanations should be preferred to complex explanations.
+
+
+
+## Maximum Likelihood
+
+**Best fit of the model to the data ?**
+
++ Our techniques should lead to *unbiased, variance minimizing estimators*.
+
++ Best in terms of *maximum likelihood*.
+
+## Experimental Design
+
+Two key concepts:
+
+* replication - to increase reliability,
+* randomization - to reduce bias
+
+Other Issues:
+
+* the principle of parsimony
+* the power of statistical test
+* controls
+* spotting pseudo-replication and knowing what to do about it
+* the difference between experimental and observational data (non-orthogonality)
+
+**Replication**
+
+To qualify as replicates, the repeated measurements -
+
+* must be independent
+* must not form part of a time-series (data collected from the same place on successive occasions are not independent)
+* must not be grouped together in one place (aggregating the replicates means they are not spatially independent)
+* must be measured at an appropriate spatial scale.
+
+**How many replicates?**
+
+*as many as you can afford*. An alternative answer is **30**. Rule of Thumb is: a sample of 30 or more is a big sample.
+
+## Power
+
+The power of test is the probability of rejecting the null hypothesis when it is false. it has to do with **type II errors**. $\beta$ is the probability of accepting the null hypothesis when it is false.
+
+Most statistician work with -
+
+$\alpha$ = 0.05 and $\beta$ = 0.2
+
+$\alpha$ is the probability of rejecting the null hypothesis when it is true (type I errors)
+
+Now the power of a test is defined as $1 - \beta = 0.8$ under the standard assumptions. This is used to calculate the sample sizes necessary to detect a specified difference when the error variance is known (or can be guessed at)
